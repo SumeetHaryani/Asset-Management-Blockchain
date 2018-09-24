@@ -1,0 +1,111 @@
+/*
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+rule NetworkAdminUser {
+    description: "Grant business network administrators full access to user resources"
+    participant: "org.hyperledger.composer.system.NetworkAdmin"
+    operation: ALL
+    resource: "**"
+    action: ALLOW
+}
+
+rule NetworkAdminSystem {
+    description: "Grant business network administrators full access to system resources"
+    participant: "org.hyperledger.composer.system.NetworkAdmin"
+    operation: ALL
+    resource: "org.hyperledger.composer.system.**"
+    action: ALLOW
+}
+
+rule facultyToOfficer {
+    description: "Allow all participants to submit transactions"
+    participant: "org.example.basic.Faculty"
+    operation: READ,UPDATE
+    resource: "org.example.basic.faculty_to_officer"
+    action: ALLOW
+}
+
+rule facultyAsset {
+    description: "Allow all participants to submit transactions"
+    participant: "org.example.basic.Faculty"
+    operation: CREATE,READ
+    resource: "org.example.basic.Items"
+    action: ALLOW
+}
+rule principalAsset {
+    description: "Allow all participants to submit transactions"
+    participant: "org.example.basic.Principal"
+    operation: ALL
+    resource: "org.example.basic.Items"
+    action: ALLOW
+}
+rule officerAsset {
+    description: "Allow all participants to submit transactions"
+    participant: "org.example.basic.Officer"
+    operation: READ,UPDATE
+    resource: "org.example.basic.Items"
+    action: ALLOW
+}
+rule storeAsset {
+    description: "Allow all participants to submit transactions"
+    participant: "org.example.basic.Store"
+    operation: UPDATE,READ
+    resource: "org.example.basic.Items"
+    action: ALLOW
+}
+
+
+rule officerToPrincipal{
+   description: "Allow all participants to submit transactions"
+    participant: "org.example.basic.Officer"
+    operation: READ,UPDATE
+    resource: "org.example.basic.officer_to_principal"
+    action: ALLOW
+}
+rule principalToOfficer{
+ description: "Allow all participants to submit transactions"
+    participant: "org.example.basic.Principal"
+    operation: ALL
+    resource: "org.example.basic.principal_to_officer"
+    action: ALLOW
+}
+rule officerToStore{
+ description: "Allow all participants to submit transactions"
+    participant: "org.example.basic.Officer"
+    operation: UPDATE,READ
+    resource: "org.example.basic.officer_to_principal"
+    action: ALLOW
+}
+rule storeToOfficer{
+ description: "Allow all participants to submit transactions"
+    participant: "org.example.basic.Store"
+    operation: READ,UPDATE
+    resource: "org.example.basic.store_to_officer"
+    action: ALLOW
+    
+}
+rule officerToFaculty{
+ description: "Allow all participants to submit transactions"
+    participant: "org.example.basic.Officer"
+    operation: READ,UPDATE
+    resource: "org.example.basic.officer_to_faculty"
+    action: ALLOW
+}
+rule SystemACL {
+    description:  "System ACL to permit all access"
+    participant: "org.hyperledger.composer.system.Participant"
+    operation: ALL
+    resource: "org.hyperledger.composer.system.**"
+    action: ALLOW
+}
