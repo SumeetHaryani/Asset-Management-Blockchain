@@ -19,7 +19,7 @@ Transactions are the mechanism by which participants interact with assets.
 
 ![Image](images/image.svg)
 
-## Pothole-Example
+
 
 
 This examples include the following components :
