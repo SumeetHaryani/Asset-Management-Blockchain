@@ -38,9 +38,10 @@ rule facultyToOfficer {
 
 rule facultyAsset {
     description: "Allow all participants to submit transactions"
-    participant: "org.example.basic.Faculty"
+    participant(c): "org.example.basic.Faculty"
     operation: CREATE,READ
-    resource: "org.example.basic.Items"
+    resource(r): "org.example.basic.Items"
+    condition:(r.faculty.getIdentifier() == c.getIdentifier())
     action: ALLOW
 }
 rule principalAsset {
