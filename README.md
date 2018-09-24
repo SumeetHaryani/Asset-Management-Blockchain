@@ -17,7 +17,7 @@ Participants are members of a business network. They may own assets and submit t
 
 Transactions are the mechanism by which participants interact with assets.
 
-![Image](images/image.svg)
+![Image](images/image.png)
 
 
 
