@@ -1,6 +1,6 @@
 # Asset-Management-Blockchain
 
-## Hyperledger Composer
+![Image](images/image1.png)
 
 Hyperledger Composer is a programming model containing a modeling language, and a set of APIs to quickly define and deploy business networks and applications that allow participants to send transactions that exchange assets
 
@@ -17,7 +17,7 @@ Participants are members of a business network. They may own assets and submit t
 
 Transactions are the mechanism by which participants interact with assets.
 
-![Image](images/image.svg)
+![Image](images/image.png)
 
 
 
