@@ -33,28 +33,25 @@ asset Items identified by assetId {
   o assetStatus status
 }
 
-participant Faculty identified by participantId {
-  o String participantId
-  o String firstName
-  o String lastName
+abstract participant member identified by memberId{
+	o String memberId
+  	o String firstName
+  	o String lastName
+
+}
+participant Faculty extends member {
   o assetStatus status
 
 }
-participant Officer identified by participantId {
-  o String participantId
-  o String firstName
-  o String lastName
+participant Officer extends member {
+  }
+participant Store identified by storeId {
+  o String storeId
+  o String storeName
+  o officer_to_store[] officerToStore 
 }
-participant Store identified by participantId {
-  o String participantId
-  o String firstName
-  o String lastName
-}
-participant Principal identified by participantId {
-  o String participantId
-  o String firstName
-  o String lastName
-}
+participant Principal extends member {
+ }
 
 
 transaction faculty_to_officer {
@@ -77,6 +74,7 @@ transaction officer_to_store {
   --> Items assets
   --> Officer officer
   --> Store store
+  
 }
 transaction store_to_officer {
   --> Items assets
